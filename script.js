@@ -58,9 +58,9 @@ app.get('/weather/forecast/:lat/:lon', (req, res) => {
         let count = 0;
 
         for (let dataPoint of body.list){
-          const date = new Date(hourlyData.dt * 1000);
+          const date = new Date(dataPoint.dt * 1000);
           if (date.getDay() === currentDay) {
-            tempSum += hourlyData.main.temp;
+            tempSum += dataPoint.main.temp;
             count++;
           }
         });
