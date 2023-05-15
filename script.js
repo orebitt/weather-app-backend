@@ -63,7 +63,7 @@ app.get('/weather/forecast/:lat/:lon', (req, res) => {
             tempSum += dataPoint.main.temp;
             count++;
           }
-        });
+        }
 
         const day = {
           dayName: week[currentDay],
