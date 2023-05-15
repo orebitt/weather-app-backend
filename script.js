@@ -57,7 +57,7 @@ app.get('/weather/forecast/:lat/:lon', (req, res) => {
         let tempSum = 0;
         let count = 0;
 
-        data.list.forEach(hourlyData => {
+        for (let dataPoint of body.list){
           const date = new Date(hourlyData.dt * 1000);
           if (date.getDay() === currentDay) {
             tempSum += hourlyData.main.temp;
@@ -73,7 +73,7 @@ app.get('/weather/forecast/:lat/:lon', (req, res) => {
         currentDay = (currentDay + 1) % 7;
       }
 
-      res.send({ forecast });
+      res.send(forecast);
     }
   });
 });
